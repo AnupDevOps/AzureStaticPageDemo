@@ -13,5 +13,9 @@
       "route": "/*",
       "allowedRoles": ["authenticated"]
     }
-  ]
+  ],
+  "navigationFallback": {
+  "rewrite": "/index.html",
+  "exclude": ["/.auth/*"]
+}
 }
