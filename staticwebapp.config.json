@@ -1,0 +1,32 @@
+{
+  "routes": [
+    {
+      "route": "/api/*",
+      "allowedRoles": ["authenticated"]
+    },
+    {
+      "route": "/admin",
+      "allowedRoles": ["admin"],
+      "rewrite": "/admin/index.html"
+    },
+    {
+      "route": "/*",
+      "serve": "/index.html"
+    }
+  ],
+  "responseOverrides": {
+    "401": {
+      "rewrite": "/unauthorized.html"
+    },
+    "404": {
+      "rewrite": "/404.html"
+    }
+  },
+  "globalHeaders": {
+    "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'",
+    "X-Frame-Options": "DENY"
+  },
+  "mimeTypes": {
+    ".json": "application/json"
+  }
+}
