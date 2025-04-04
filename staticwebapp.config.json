@@ -8,21 +8,20 @@
       }
     }
   },
-    "routes": [
-     {
-       "route": "/",
-       "allowedRoles": ["authenticated"]
-     },
-     {
-       "route": "/*",
-       "allowedRoles": ["authenticated"]
-     }
-   ],
-    "responseOverrides":{
+  "routes": [
+    {
+      "route": "/",
+      "allowedRoles": ["authenticated"]
+    },
+    {
+      "route": "/*",
+      "allowedRoles": ["authenticated"]
+    }
+  ],
+  "responseOverrides": {
     "401": {
       "redirect": "/.auth/login/aad",
-      "statuscode": 302
+      "statusCode": 302
     }
-    
   }
 }
