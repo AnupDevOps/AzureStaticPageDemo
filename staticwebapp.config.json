@@ -1,32 +1,21 @@
 {
+  "auth": {
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/bf2587c4-015f-43b2-b5d0-1edf8629bee9/v2.0"
+        }
+      }
+    }
+  },
   "routes": [
     {
-      "route": "/api/*",
+      "route": "/",
       "allowedRoles": ["authenticated"]
     },
     {
-      "route": "/admin",
-      "allowedRoles": ["admin"],
-      "rewrite": "/admin/index.html"
-    },
-    {
       "route": "/*",
-      "serve": "/index.html"
+      "allowedRoles": ["authenticated"]
     }
-  ],
-  "responseOverrides": {
-    "401": {
-      "rewrite": "/unauthorized.html"
-    },
-    "404": {
-      "rewrite": "/404.html"
-    }
-  },
-  "globalHeaders": {
-    "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'",
-    "X-Frame-Options": "DENY"
-  },
-  "mimeTypes": {
-    ".json": "application/json"
-  }
+  ]
 }
