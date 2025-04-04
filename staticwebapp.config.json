@@ -10,19 +10,13 @@
   },
   "routes": [
     {
-      "route": "/.auth/*",
-      "allowedRoles": ["anonymous"]
+      "route": "/",
+      "allowedRoles": ["authenticated"]
     },
     {
       "route": "/*",
       "allowedRoles": ["authenticated"]
     }
-  ],
-  "responseOverrides":{
-    "401": {
-      "redirect": "/.auth/login/aad",
-      "statuscode": 302
-    }
-    
+  ]
   }
 }
